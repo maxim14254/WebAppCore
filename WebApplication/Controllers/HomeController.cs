@@ -26,8 +26,7 @@ namespace WebApplication.Controllers
         {
             int countFilm = 12;
             FilmsPaginationModel model = new FilmsPaginationModel();
-            List<Film> films = dbContext.Films.ToList<Film>();
-            model.Films = films.Skip((page - 1) * countFilm).Take(countFilm);
+            List<Film> films = dbContext.Films.Skip((page - 1) * countFilm).Take(countFilm).ToList<Film>();
             model.PageInfo = new PageInfo { PageNumber = page, PageSize = countFilm, TotalItems = films.Count };
             return View(model);
         }
