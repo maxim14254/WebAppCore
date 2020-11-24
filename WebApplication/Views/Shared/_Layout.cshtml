@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" type="text/css" href="~/css/StyleSheet1.css">
+    <link rel="stylesheet" type="text/css" href="~/css/StyleSheet.css">
+</head>
+<body>
+
+    <div class="topnav">
+        <a class="active" href="/Home/Index">Все фильмы</a>
+        <a href="/Create/MyFilms">Мои фильмы</a>
+        <a href="/Create/Film">Добавить фильм</a>
+
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="dropdown">
+                <button class="dropbtn">
+                    @User.Identity.Name
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/Account/Exit">Выйти</a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="dropdown">
+                <button class="dropbtn">
+                    Account
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <a href="/Account/Login">Войти</a>
+                </div>
+            </div>
+        }
+    </div>
+    @RenderBody()
+</body>
+</html>

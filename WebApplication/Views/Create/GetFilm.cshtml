@@ -1,0 +1,151 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model WebApplication.Models.Film
+@using Microsoft.AspNetCore.Http;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/css/Kinopoisk.css">
+    <link rel="stylesheet" type="text/css" href="~/css/Kinopoisk2.css">
+    <link rel="stylesheet" type="text/css" href="~/css/Kinopoisk3.css">
+</head>
+<body>
+
+
+                                @*ВЗЯТО У КИНОПОИСКА*@
+    <div class="styles_root__3BHiJ styles_rootGrey__2oBAE styles_root__3FrYl">
+        <div class="styles_background__2CDW1"></div>
+        <div class="styles_root__2jZrC">
+            <div class="styles_root__1MF6T" d>
+                <div class="styles_column__3SyAo styles_md_6__2Poxo styles_lg_8__1nJe4 styles_column__V66iE">
+                    <div class="styles_sidebar__383xd">
+                        <div class="styles_root__1HIXe styles_basicMediaSection__3moOZ">
+                            <div class="styles_posterContainer__1w5Ik">
+                                <div class="styles_root__3uUGx">
+                                    <img class="film-poster styles_root__2Q5Ds styles_rootInLight__3r1yx image styles_root__eMUmk styles_rootLoaded__SyGwc" src="@Url.Content(Model.UrlImage)">
+                                </div>
+                            </div>
+                            <div class="styles_trailerContainer__2DEgi styles_section__hysTv">
+                                <div class="film-trailer styles_rootInLight__1OsEV styles_rootSmSize__T9WAK">
+
+                                </div>
+                            </div>
+                            <div class="styles_userControlsContainer__3KaqU styles_section__hysTv">
+                                <div class="styles_controlContainer__1ixcB">
+                                    <div class="styles_foldersMenu__2GYEz styles_root___ktEa">
+
+                                    </div>
+                                    <div class="styles_root__1jIcZ">
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="styles_socialControlsContainer__1TxTs">
+                                <div class="styles_root__1MF6T">
+                                    <div class="styles_column__3SyAo styles_md_6__2Poxo styles_lg_8__1nJe4">
+                                        <div class="styles_share__2dB6D styles_root__2jpYi">
+                                            <div class="ya-share2 ya-share2_inited">
+                                                <div class="ya-share2__container ya-share2__container_size_m ya-share2__container_color-scheme_normal ya-share2__container_shape_normal">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="styles_root__1MF6T">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="styles_delimiter__33MY4 styles_delimiterGray__3KVMD">
+                </div>
+                <div class="styles_column__3SyAo styles_md_16__3S4Lq styles_lg_20__jxLMX styles_column__V66iE">
+                    <div class="styles_main__leVJm styles_main__2rWxx">
+                        <div class="styles_root__37rNk styles_basicInfoSection__26fFZ">
+                            <div class="styles_root__1MF6T styles_topLine__37rG1">
+                                <div class="styles_column__3SyAo styles_md_11__Fr5Ab styles_lg_15__3ZroS">
+                                    <div class="styles_productionStatus__2QDuV">
+                                    </div>
+                                    <div class="styles_title__1yvs9">
+                                        <h1 class="styles_title__d5UEr styles_root__dt4P- styles_root__179-Q styles_rootInLight__hB0nf" itemprop="name">
+                                            <span class="styles_title__2l0HH">@Model.Name</span>
+                                        </h1>
+                                        <div class="styles_root__Y3k0N styles_rootInLight__2cO5o">
+
+                                        </div>
+                                    </div>
+                                    <div class="styles_hdContainer__3jCqC">
+                                        <div class="styles_buttonsAndDescriptionContainer__24igj">
+                                            <div class="styles_buttonsContainer__UTIlG"></div>
+                                            <div class="styles_watchOnlineDescription__2_w68"></div>
+                                            <div class=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="styles_root__1MF6T styles_topLine__37rG1">
+                                <div class="styles_column__3SyAo styles_md_11__Fr5Ab styles_lg_15__3ZroS">
+                                    <h3 class="film-page-section-title styles_tableHeader__22f5C styles_rootSm__3hkVq styles_root__2YHLV styles_rootDark__QT0qE">О фильме</h3>
+                                    <div class="">
+                                        <div class="styles_rowDark__2qC4I styles_row__2ee6F">
+                                            <div class="styles_titleDark__3-gXe styles_title__a0_0F">Год производства</div>
+                                            <div class="styles_valueDark__3dsUz styles_value__2F1uj">
+                                                <a class="styles_linkDark__3aytH styles_link__1N3S2">@Model.Year</a>
+                                            </div>
+                                        </div>
+                                        <div class="styles_rowDark__2qC4I styles_row__2ee6F">
+                                            <div class="styles_titleDark__3-gXe styles_title__a0_0F">Режиссер</div>
+                                            <div class="styles_valueDark__3dsUz styles_value__2F1uj">
+                                                <a class="styles_linkDark__3aytH styles_link__1N3S2">@Model.Producer</a>
+                                            </div>
+                                        </div>
+                                        <div class="styles_rowDark__2qC4I styles_row__2ee6F">
+                                            <div class="styles_titleDark__3-gXe styles_title__a0_0F">Описание</div>
+                                            <div class="styles_valueDark__3dsUz styles_value__2F1uj">
+                                                <a class="styles_linkDark__3aytH styles_link__1N3S2">@Model.Content</a>
+                                            </div>
+                                        </div>
+                                        <div class="styles_rowDark__2qC4I styles_row__2ee6F">
+                                            <div class="styles_titleDark__3-gXe styles_title__a0_0F">Пользователь который выложил</div>
+                                            <div class="styles_valueDark__3dsUz styles_value__2F1uj">
+                                                <a class="styles_linkDark__3aytH styles_link__1N3S2">@Model.UserName</a>
+                                            </div>
+                                        </div>
+                                        @if (Model.UserName == User.Identity.Name)
+                                        {
+                                            <div class="styles_rowDark__2qC4I styles_row__2ee6F">
+                                                <a href="/Create/EditFilm?id=@Model.Id">Редактировать</a>
+                                            </div>
+                                            <div class="styles_rowDark__2qC4I styles_row__2ee6F">
+                                                <a href="/Create/DeleteFilm?id=@Model.Id">Удалить</a>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="styles_root__1MF6T">
+                                <div class="styles_column__3SyAo styles_md_16__3S4Lq styles_lg_20__jxLMX">
+                                </div>
+                            </div>
+                            <div class="styles_root__1MF6T styles_topLine__37rG1 styles_topLineUserNote__3kneF">
+                                <div class="styles_column__3SyAo styles_md_11__Fr5Ab styles_lg_15__3ZroS">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

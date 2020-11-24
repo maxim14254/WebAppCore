@@ -1,0 +1,73 @@
+﻿@{
+    Layout = null;
+}
+@model WebApplication.Models.RegisterViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Регистрация</title>
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/css/icon-font.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/css/animate.css">
+
+    <link rel="stylesheet" type="text/css" href="~/css/hamburgers.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/css/animsition.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/css/select2.min.css">
+
+    <link rel="stylesheet" type="text/css" href="./css/da">
+
+    <link rel="stylesheet" type="text/css" href="~/css/util.css">
+
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+
+    <script type="text/javascript" src="~/js/JavaScript.js"></script>
+</head>
+<body>
+
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-t-50 p-b-90">
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { htmlAttributes = new { @class = "login100-form validate-form flex-sb flex-w" } }))
+                {
+                    @Html.AntiForgeryToken()
+                    <span class="login100-form-title p-b-51">
+                        Регистрация
+                    </span>
+                    @Html.ValidationSummary(true, "")
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Username is required">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input100", placeholder = "Email пользователя", onkeyup = "block1(value)", id = "name" } })
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "input100", placeholder = "Пароль", type = "password", onkeyup = "block2(value)", id = "password" } })
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
+                        @Html.EditorFor(model => model.PasswordConfirm, new { htmlAttributes = new { @class = "input100", placeholder = "Повторите пароль", type = "password", onkeyup = "block3(value)", id = "pas" } })
+
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="flex-sb-m w-full p-t-3 p-b-24">
+                    </div>
+                    <div class="container-login100-form-btn m-t-17">
+                        <input type="submit" value="Зарегистрироваться" class="login100-form-btn" disabled="disabled" id="Button1" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div id="dropDownSelect1"></div>
+</body>
+</html>

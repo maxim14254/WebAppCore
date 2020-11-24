@@ -1,0 +1,36 @@
+﻿
+.form{
+    margin-bottom: 20px;
+    margin: 10% auto;
+    max-width: 600px;
+}
+
+.qw {
+    margin-bottom: 14px;
+    margin-left: 265px;
+    display: block;
+    margin-top: -19px;
+}
+
+.qw1 {
+    margin-left: 265px;
+    margin-bottom: 14px;
+    width: 381px;
+    display: block;
+    margin-top: -19px;
+}
+
+.qw2 {
+    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.qw3 {
+    height: 129px;
+    margin-top: -19px;
+    margin-left: 265px;
+    margin-bottom: 14px;
+    width: 381px;
+    display: block;
+}

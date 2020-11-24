@@ -1,0 +1,96 @@
+﻿.styles_root__dt4P- {
+    word-wrap: break-word
+}
+
+.styles_title__d5UEr {
+    margin-top: 0;
+    margin-bottom: 15px
+}
+
+.styles_title__1yvs9 {
+    margin-bottom: 16px;
+    padding-top: 15px
+}
+
+
+.styles_buttonsAndDescriptionContainer__24igj {
+    margin-bottom: 32px
+}
+
+.styles_buttonsContainer__UTIlG {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row
+}
+
+
+.styles_watchOnlineDescription__2_w68 {
+    margin-bottom: 14px;
+    padding-top: 10px
+}
+
+
+.styles_tableHeader__22f5C {
+    margin-bottom: 5px
+}
+
+
+.styles_productionStatus__2QDuV {
+    margin-top: -11px
+}
+
+.styles_controlContainer__1ixcB {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 24px
+}
+
+@media screen and (min-width:1280px) {
+    .styles_controlContainer__1ixcB {
+        margin-bottom: 34px
+    }
+}
+
+.styles_foldersMenu__2GYEz {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0;
+    -ms-flex: 1 0;
+    flex: 1 0
+}
+
+
+.styles_share__2dB6D {
+    max-width: 242px;
+    margin: 40px auto 0
+}
+
+.styles_root__3BHiJ {
+    position: relative
+}
+
+.styles_basicMediaSection__3moOZ {
+    width: 100%
+}
+
+.styles_basicInfoSection__26fFZ, .styles_basicMediaSection__3moOZ {
+    padding: 40px 0 60px
+}
+
+.styles_main__2rWxx {
+    min-height: 100%
+}
+
+.styles_actionButtonsRoot__ji2Y1, .styles_main__2rWxx {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}

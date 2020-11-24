@@ -1,0 +1,108 @@
+.nbl-slimPosterBlock {
+    display: block;
+    -webkit-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transition-property: -webkit-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+    transition-property: transform,-webkit-transform,-o-transform;
+    text-decoration: none
+}
+
+    .nbl-slimPosterBlock:not(.nbl-slimPosterBlock_locked) {
+        cursor: pointer
+    }
+
+    .nbl-slimPosterBlock .nbl-slimPosterBlock__nbl-noPhotoPersonPoster, .nbl-slimPosterBlock .nbl-slimPosterBlock__nbl-poster {
+        -webkit-transition-property: -webkit-transform;
+        -o-transition-property: -o-transform;
+        transition-property: transform;
+        transition-property: transform,-webkit-transform,-o-transform;
+        -webkit-transform-origin: 50% 100%;
+        -o-transform-origin: 50% 100%;
+        transform-origin: 50% 100%
+    }
+
+    .nbl-slimPosterBlock:not(:hover):not(:focus):not(:active) {
+        -webkit-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1)
+    }
+
+        .nbl-slimPosterBlock:not(:hover):not(:focus):not(:active), .nbl-slimPosterBlock:not(:hover):not(:focus):not(:active) * {
+            -webkit-transition-duration: .4s;
+            -o-transition-duration: .4s;
+            transition-duration: .4s
+        }
+
+
+    body:not(.touch) .nbl-slimPosterBlock:hover, body:not(.touch) .nbl-slimPosterBlock:hover * {
+        -webkit-transition-duration: .2s;
+        -o-transition-duration: .2s;
+        transition-duration: .2s
+    }
+
+        body:not(.touch) .nbl-slimPosterBlock:hover .nbl-slimPosterBlock__nbl-noPhotoPersonPoster, body:not(.touch) .nbl-slimPosterBlock:hover .nbl-slimPosterBlock__nbl-poster {
+            -webkit-transform: scale(1.04) translateY(0);
+            -o-transform: scale(1.04) translateY(0);
+            transform: scale(1.04) translateY(0)
+        }
+
+.nbl-slimPosterBlock .nbl-slimPosterBlock__imageSection, .nbl-slimPosterBlock .nbl-slimPosterBlock__textSection {
+    position: relative
+}
+
+.nbl-slimPosterBlock .nbl-slimPosterBlock__imageSection {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto
+}
+
+.nbl-slimPosterBlock_type_poster .nbl-slimPosterBlock__nbl-poster:before {
+    padding-bottom: 153.48837209%
+}
+
+
+.nbl-slimPosterBlock_type_poster .nbl-slimPosterBlock__nbl-poster .nbl-poster__image {
+    border-radius: 0
+}
+
+
+.nbl-slimPosterBlock_type_poster .nbl-slimPosterBlock__textSection {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding: 0
+}
+
+.nbl-poster {
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+    .nbl-poster:before {
+        content: "";
+        height: 0;
+    }
+
+
+
+.nbl-poster:not(:hover):not(:focus):not(:active) .nbl-poster__properties, body.touch .nbl-poster:focus:not(:hover):not(:active) .nbl-poster__properties, body.touch .nbl-poster:hover .nbl-poster__properties {
+    opacity: 0
+}
+
+
+    .nbl-poster .nbl-poster__properties {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 4
+    }

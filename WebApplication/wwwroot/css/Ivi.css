@@ -1,0 +1,125 @@
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    line-height: 1
+}
+
+a, abbr, acronym, address, applet, article, aside, b, big, blockquote, br, caption, center, cite, code, dd, del, dfn, div, dl, dt, em, fieldset, figcaption, figure, font, footer, form, h1, h2, h3, h4, h5, h6, header, i, iframe, img, ins, kbd, label, legend, li, mark, nav, object, ol, p, pre, q, s, samp, section, small, span, strike, strong, sub, sup, table, tbody, td, tfoot, th, thead, tr, tt, u, ul, var {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: 0 0;
+    text-decoration: none
+}
+
+body {
+    -webkit-tap-highlight-color: transparent
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    height: 100%
+}
+
+.basePage {
+    height: 100%;
+    min-width: 320px;
+    font-family: iviSans,Arial,Helvetica,Helvetica Neue,FreeSans,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.basePage .page-wrapper, .basePage__inner {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow-x: hidden
+}
+
+.basePage .page-wrapper::before {
+    content: '';
+    display: block;
+    clear: both
+}
+
+.pageSection:not(.pageSection_grow) {
+    flex-shrink: 0
+}
+
+@media screen and (min-width:1280px) {
+    .pageSection__container {
+        width: 1216px;
+        margin-left: auto;
+        margin-right: auto
+    }
+
+    .gallery, .gallery__carousel {
+        position: relative
+    }
+
+    .gallery__list {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+
+    @media screen and (min-width:600px) {
+        .gallery__list {
+            margin-bottom: -24px
+        }
+    }
+
+    @media screen and (min-width:1272px) {
+        .gallery__list_slimPosterBlock.gallery__list_type_person .gallery__item, .gallery__list_slimPosterBlock.gallery__list_type_poster .gallery__item {
+            width: 14.28571429%
+        }
+    }
+
+    @media screen and (min-width:600px) {
+        .gallery__list_slimPosterBlock.gallery__list_type_person .gallery__item, .gallery__list_slimPosterBlock.gallery__list_type_poster .gallery__item {
+            padding-left: 12px;
+            padding-right: 12px
+        }
+    }
+
+    body:not(.touch).catalog .basePage__inner {
+        overflow-x: visible
+    }
+
+
+    .collections__pageSection .pageSection__container {
+        position: relative
+    }
+
+    @media screen and (min-width:600px) {
+        .collections__pageSection .pageSection__container {
+            padding-top: 24px;
+            padding-bottom: 24px
+        }
+    }
+
+    .collections__pageSection_virtual .pageSection__container {
+        position: relative
+    }
+
+    @media screen and (min-width:600px) {
+        .collections__pageSection_virtual .pageSection__container {
+            padding-bottom: 0
+        }
+    }
+}

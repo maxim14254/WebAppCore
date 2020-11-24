@@ -1,0 +1,64 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model WebApplication.Models.Film
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Добавить фильм</title>
+    <link rel="stylesheet" type="text/css" href="~/css/StyleSheet.css">
+    <script type="text/javascript" src="~/JS/JavaScript2.js"></script>
+</head>
+<body>
+    <form class="form" asp-action="Film" asp-controller="Create" method="post" enctype="multipart/form-data">
+
+        <div class="qw2">
+            <div class="validation" asp-validation-summary="ModelOnly"></div>
+            <div>
+                <label data-marker="label">
+                    <span>Постер</span>
+                    <input type="file" oninput="block1(value)" value="" id="file" name="uploadedFile" class="qw" accept="image/gif,image/png,image/jpeg,image/pjpeg">
+                </label>
+            </div>
+
+            <div>
+                <label data-marker="label">
+                    <span>Название фильма</span>
+                    <input class="qw1" asp-for="Name" value=""  onkeyup="block2(value)" id="name" autocomplete="off" maxlength="50">
+                </label>
+            </div>
+
+            <div>
+                <label data-marker="label">
+                    <span>Год создания</span>
+                    <input onkeyup="block3(value)" value="" id="year" class="qw1" asp-for="Year" maxlength="50">
+                </label>
+            </div>
+
+            <div>
+                <label data-marker="label">
+                    <span>Режиссер</span>
+                    <input asp-for="Producer" id="producer" value=""  onkeyup="block4(value)" class="qw1" autocomplete="off" maxlength="50">
+                </label>
+            </div>
+
+            <div>
+                <label data-marker="label">
+                    <span>Описание</span>
+                    <textarea asp-for="Content" id="content" onkeyup="block5(value)" class="qw3" rows="6" maxlength="5000"></textarea>
+                </label>
+            </div>
+
+            <input type="submit" value="Добавить" class="qw2" disabled="disabled" id="Button1" />
+        </div>
+
+    </form>
+
+
+
+
+</body>
+</html>
