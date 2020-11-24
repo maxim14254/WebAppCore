@@ -42,7 +42,11 @@ namespace WebApplication.Controllers
                 return View();
             }
             string wwwroot = webHostEnvironment.WebRootPath;
-
+            DirectoryInfo dirInfo = new DirectoryInfo(wwwroot + "\\Images");
+            if (!dirInfo.Exists)
+            {
+                dirInfo.Create();
+            }
             string path = $"\\Images\\{film.Name}_{User.Identity.Name}_{uploadedFile.FileName}";
 
             film.UrlImage = path;
@@ -143,6 +147,7 @@ namespace WebApplication.Controllers
             int countFilm = 12;
             FilmsPaginationModel model = new FilmsPaginationModel();
             List<Film> films = dbContext.Films.Where(f => f.UserName == User.Identity.Name).Skip((page - 1) * countFilm).Take(countFilm).ToList<Film>();
+            model.Films = films;
             model.PageInfo = new PageInfo { PageNumber = page, PageSize = countFilm, TotalItems = films.Count };
             return View(model);
         }
