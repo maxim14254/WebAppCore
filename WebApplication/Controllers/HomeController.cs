@@ -20,15 +20,14 @@ namespace WebApplication.Controllers
         {
             this.dbContext = dbContext;
         }
-       
+
         [HttpGet]
-        public ActionResult Index(int page=1)
+        public ActionResult Index(int page = 1)
         {
-            int countFilm = 12;
-            FilmsPaginationModel model = new FilmsPaginationModel();
-            List<Film> films = dbContext.Films.Skip((page - 1) * countFilm).Take(countFilm).ToList<Film>();
-            model.Films = films;
-            model.PageInfo = new PageInfo { PageNumber = page, PageSize = countFilm, TotalItems = films.Count };
+            int pageSize = 12; // количество объектов на страницу
+            List<Film> films = dbContext.Films.Skip((page - 1) * pageSize).Take(pageSize).ToList<Film>();
+            PageInfo pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = dbContext.Films.Count() };
+            IndexViewModel model = new IndexViewModel { PageInfo = pageInfo, Films = films };
             return View(model);
         }
     }

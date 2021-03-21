@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace WebApplication.Models
 {
-    public class MyDbContext: IdentityDbContext<IdentityUser>
+    public class MyDbContext : IdentityDbContext<IdentityUser>
     {
-        public MyDbContext(DbContextOptions options):base (options)
+        public MyDbContext(DbContextOptions options) : base(options)
         {
-            Database.EnsureCreated();   
+            Database.EnsureCreated();
         }
         public DbSet<Film> Films { get; set; }
         //protected override void OnModelCreating(ModelBuilder builder)

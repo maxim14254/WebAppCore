@@ -52,7 +52,7 @@ namespace WebApplication.Controllers
             film.UrlImage = path;
             film.UserName = User.Identity.Name;
             dbContext.Films.Add(film);
-            using (var fileStream = new FileStream(wwwroot + path, FileMode.Create)) 
+            using (var fileStream = new FileStream(wwwroot + path, FileMode.Create))
             {
                 await uploadedFile.CopyToAsync(fileStream);
                 dbContext.SaveChanges();
@@ -63,7 +63,10 @@ namespace WebApplication.Controllers
         [HttpGet]
         public ActionResult GetFilm(int id)
         {
-            return View(dbContext.Films.Where(f => f.Id == id).FirstOrDefault());
+            var film = dbContext.Films.Where(f => f.Id == id).FirstOrDefault();
+            if (film == null)
+                return RedirectToAction("NotFound", "Create");
+            return View(film);
         }
 
         [HttpGet]
@@ -90,12 +93,16 @@ namespace WebApplication.Controllers
         public ActionResult DeleteFilm(int id)
         {
             Film film = dbContext.Films.Where(f => f.Id == id).FirstOrDefault();
-            if (film != null) 
+            if (film != null)
             {
-                System.IO.File.Delete($"wwwroot{film.UrlImage}");
-                dbContext.Remove(film);
-                dbContext.SaveChanges();
-                return RedirectToAction("MyFilms", "Create");
+                if (film.UserName == User.Identity.Name)
+                {
+                    System.IO.File.Delete($"wwwroot{film.UrlImage}");
+                    dbContext.Remove(film);
+                    dbContext.SaveChanges();
+                    return RedirectToAction("MyFilms", "Create");
+                }
+                else { return Redirect($"/Create/GetFilm?id={film.Id}"); }
             }
             else
             {
@@ -135,20 +142,21 @@ namespace WebApplication.Controllers
             return RedirectToAction("MyFilms", "Create");
 
         }
-       
+
 
         [HttpGet]
-        public ActionResult MyFilms(int page=1)
+        public ActionResult MyFilms(int page = 1)
         {
             if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Login", "Account");
             }
-            int countFilm = 12;
-            FilmsPaginationModel model = new FilmsPaginationModel();
-            List<Film> films = dbContext.Films.Where(f => f.UserName == User.Identity.Name).Skip((page - 1) * countFilm).Take(countFilm).ToList<Film>();
-            model.Films = films;
-            model.PageInfo = new PageInfo { PageNumber = page, PageSize = countFilm, TotalItems = films.Count };
+
+            int pageSize = 12; // количество объектов на страницу
+            List<Film> films1 = dbContext.Films.Where(s => s.UserName == User.Identity.Name).ToList();
+            List<Film> films2 = films1.Skip((page - 1) * pageSize).Take(pageSize).ToList<Film>();
+            PageInfo pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = films1.Count() };
+            IndexViewModel model = new IndexViewModel { PageInfo = pageInfo, Films = films2 };
             return View(model);
         }
 
